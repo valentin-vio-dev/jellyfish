@@ -1,5 +1,3 @@
-# Jellyfish
-
 ![512x397](./app-logo.png)
 
 A Jellyfish EEG jelek rögzítését, feldolgozását és vizualizációját teszi lehetővé
@@ -13,4 +11,6 @@ felhasználók kezelésével és az adatok tárolásával tér el. Az adatok tá
 így biztosítva, hogy más felhasználók is szabadon felhasználhassák az adatokat különböző
 projektekben a világ bármely részén. 
 
-[Apk letöltése itt.](https://github.com/valentin-vio-dev/jellyfish/tree/master/apk)
+
+## Letöltés | [ Jellyfish.apk ](https://github.com/valentin-vio-dev/jellyfish/tree/master/apk)
+ 
