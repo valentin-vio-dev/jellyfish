@@ -1,5 +1,7 @@
 # Jellyfish
 
+![512x397](./app-logo.png)
+
 A Jellyfish EEG jelek rögzítését, feldolgozását és vizualizációját teszi lehetővé
 okostelefonon. Az alkalmazás Ionic illetve Angular keretrendszerekkel lett megvalósítva, így
 egyaránt használható Android illetve iOS operációs rendszer alatt. Elsősorban Emotiv
