@@ -1,16 +1,6 @@
 ![512x397](./app-logo.png)
 
-A Jellyfish EEG jelek rögzítését, feldolgozását és vizualizációját teszi lehetővé
-okostelefonon. Az alkalmazás Ionic illetve Angular keretrendszerekkel lett megvalósítva, így
-egyaránt használható Android illetve iOS operációs rendszer alatt. Elsősorban Emotiv
-készülékekkel használható (EPOC+ és Insight), azonban más termékcsaláddal való
-kompatibilitás megvalósítása is tervben van a jövőben. Az EEG készülék Bluetooth
-kommunikációval csatlakozik az adott telefonra, mely pontos és gyors adatátvitelt tesz lehetővé
-bizonyos hatótávolságon belül. Az előző fejezetben említett alkalmazásoktól főként a
-felhasználók kezelésével és az adatok tárolásával tér el. Az adatok tárolása a felhőben történik,
-így biztosítva, hogy más felhasználók is szabadon felhasználhassák az adatokat különböző
-projektekben a világ bármely részén. 
+Jellyfish allows you to record, process and visualize EEG signals on your smartphone. The application is implemented with Ionic and Angular frameworks, so it can be used under both Android and iOS operating systems. It can be used primarily with Emotiv devices (EPOC + and Insight), however, compatibility with other product families is also planned in the future. The EEG device is connected to the phone via Bluetooth communication, which enables accurate and fast data transfer within a certain range. The data is stored in the cloud, ensuring that other users are free to use the data in different projects anywhere in the world.
 
-
-## Letöltés | [ Jellyfish.apk ](https://github.com/valentin-vio-dev/jellyfish/tree/master/apk)
+## Download | [ Jellyfish.apk ](https://github.com/valentin-vio-dev/jellyfish/tree/master/apk)
  
