@@ -1,0 +1,23 @@
+.login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+    margin-top: 50%;
+
+    ion-input {
+        text-align: center;
+    }
+
+    .title {
+        margin-bottom: 50px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.vertical-align-content {
+
+}

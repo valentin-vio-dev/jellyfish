@@ -1,0 +1,56 @@
+<ion-tabs class="ion-page" id="main-content" id="main">
+  <ion-tab-bar slot="bottom" style="border: none;">
+    <ion-tab-button tab="scan-tab">
+      <ion-icon name="wifi"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="follow-tab">
+      <ion-icon name="people"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="cloud-tab">
+      <ion-icon name="cloud"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings-tab">
+      <ion-icon name="settings"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-menu side="start" menuId="first" contentId="main" *ngIf="authService.authUser">
+  <ion-header class="mb-80">
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button class="" (click)="signOut()">
+          <ion-icon name="exit" class="mr-5 medium-icon"></ion-icon>
+          Log-out
+        </ion-button>
+      </ion-buttons>
+      <ion-title><b>Menu</b></ion-title>
+    </ion-toolbar>
+
+    <div class="toolbar-menu">
+      <div class="center-div col">
+        <div class="img-sec">
+          <img [src]="(authService.authUser.pic ? authService.authUser.pic : '../../../assets/img/def-profile.png')" alt="">
+        </div>
+        <div class="name center-div col">
+          <ion-text class="primary">
+            {{ authService.authUser.firstname + ' ' + authService.authUser.lastname }}
+          </ion-text>
+          <ion-text slot="end" color="medium" >
+            <small>{{ authService.authUser.role }}</small>
+          </ion-text>
+        </div>
+      </div>
+    </div>
+
+  </ion-header>
+
+  <ion-content class="mt-10">
+    <ion-list class="panel no-sh">
+      <ion-item lines="none" (click)="toProfile()"><ion-icon name="person" color="medium" class="small-icon mr-10"></ion-icon>Profile</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

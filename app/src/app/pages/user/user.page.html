@@ -1,0 +1,91 @@
+<ion-header class="mb-10">
+  <div class="">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="back()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title><b>profile</b><span class="o-5">view</span></ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div class="toolbar-menu tool-img center-div" *ngIf="!loading">
+    <div class="img-sec">
+      <img [src]="(user.pic ? user.pic : '../../../assets/img/def-profile.png')" alt="" (click)="changeProfilePicture()" (load)="picLoaded()" [class]="pictureLoaded ? '' : 'hide-image'">
+      <input id="file-input-profile-pic" type="file" name="name" style="display: none;" accept="image/*" />
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar type="indeterminate" *ngIf="loading && !pictureLoaded"></ion-progress-bar>
+  <div class="hide-while-loading" *ngIf="!loading && pictureLoaded">
+    
+  
+    <div class="info-view center-div mt-60 col">
+      <h5 class="primary name"><b>{{ user.firstname + ' ' + user.lastname }}</b></h5>
+      <ion-text color="medium" >
+        <small>{{ user.role }}</small>
+      </ion-text>
+      <br>
+      <ion-text color="medium" >
+        <small>Contact</small>
+      </ion-text>
+      <ion-text color="primary">
+        <small>{{ user.email }}</small>
+      </ion-text>
+      <br>
+      <ion-button class="round" *ngIf="authService.authUser.uid !== user.uid && !follows" (click)="follow()" [disabled]="clickedFollowButton">
+        <ion-icon name="person-add" class="mr-10 small-icon"></ion-icon>
+        Follow
+      </ion-button>
+      <ion-button class="round" *ngIf="authService.authUser.uid !== user.uid && follows" (click)="unfollow()" [disabled]="clickedFollowButton">
+        <ion-icon name="close" class="mr-10 small-icon"></ion-icon>
+        Unfollow
+      </ion-button>
+    </div>
+
+    <ion-list>
+
+      <ion-item class="info-view p-10" lines="none">
+        <h5><b>EXPLORE</b><span class="o-5">MORE</span></h5>
+        <ion-text color="medium" slot="end">
+          <small>Found {{ selfRecords.length}} records</small>
+        </ion-text>
+      </ion-item>
+
+      <div class="panel" *ngFor="let record of selfRecords">
+        <ion-item-sliding>
+          <ion-item lines="none">
+            <ion-label>
+              <ion-text>
+                <ion-text color="primary">
+                  <b>{{ record.name }}</b>
+                </ion-text>
+              </ion-text>
+              <br>
+              <ion-text color="medium">
+                <ion-icon name="person" class="mr-5 xs-icon"></ion-icon>
+                <small>{{ record.user.firstname + ' ' + record.user.lastname }} </small>
+              </ion-text>
+              <br>
+              <ion-text color="medium">
+                <ion-icon name="calendar" class="mr-5 xs-icon"></ion-icon>
+                <small>{{ record.dateStart | date }} | </small>
+                <ion-icon name="time" class="mr-5 xs-icon"></ion-icon>
+                <small>{{ record.getFormatedTime() }}</small>
+              </ion-text>
+            </ion-label>
+            <ion-icon name="pulse" slot="start" color="primary"></ion-icon>
+            <ion-text color="medium" slot="end"><small>Open</small></ion-text>
+            <ion-icon name="caret-back" slot="end" color="medium" class="small-icon"></ion-icon>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option (click)="openRecord(record)">Open&nbsp; <ion-icon name="arrow-forward"></ion-icon></ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>

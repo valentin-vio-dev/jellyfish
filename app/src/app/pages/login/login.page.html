@@ -1,0 +1,12 @@
+<ion-content text-center class="vertical-align-content">
+  <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
+  <div class="login-section panel no-sh">
+    <img src="../../../assets/jellyfish_logo.svg" alt="" class="mb-20"/>
+    <ion-list class="w-full p-10">
+      <ion-input [(ngModel)]="email" placeholder="E-mail" type="email" class="mb-10 no-m"></ion-input>
+      <ion-input [(ngModel)]="password" placeholder="Password" type="password" class="mb-20 no-m"></ion-input>
+      <ion-button expand="block" class="mb-50 round" (click)="signIn()">Sign in</ion-button>
+      <a (click)="signUp()" class="w-full d-block text-center">Create new account</a>
+    </ion-list>
+  </div>
+</ion-content>

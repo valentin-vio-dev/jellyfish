@@ -1,0 +1,18 @@
+<ion-header>
+  <div class="">
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="stop()">
+          <ion-icon slot="icon-only" name="power"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Activity</ion-title>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="panel canvas-container">
+    <canvas id="brain" [width]="size" [height]="size"></canvas>
+  </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openNav()">
+        <ion-icon slot="icon-only" name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title><b>Follow</b></ion-title>
+    <!--<ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-progress-bar type="indeterminate" *ngIf="loading"></ion-progress-bar>
+
+  <ion-list *ngIf="!loading">
+    <div class="panel" *ngFor="let user of follows">
+      <ion-item lines="none" (click)="goToUser(user.uid)">
+        <div class="img-sec">
+          <img [src]="(user.pic ? user.pic : '../../../assets/img/def-profile.png')" alt="">
+        </div>
+        <ion-label>
+          <ion-text color="primary">
+            <b>{{ user.firstname + ' ' + user.lastname }}</b><br>
+            <ion-text color="medium"><small>{{ user.role }}</small></ion-text>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

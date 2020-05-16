@@ -1,0 +1,39 @@
+ion-header::after {
+    background-image: none;
+}
+
+.textare-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100px;
+
+    ion-icon {
+        margin-top: -12px;
+    }
+}
+
+.top-container {
+    position: relative;
+    .image-container {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.device-name {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.address {
+    margin: 5px 0;
+}
+
+.toolbar-menu {
+    margin-top: -50px;
+}

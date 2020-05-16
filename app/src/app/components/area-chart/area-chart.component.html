@@ -1,0 +1,76 @@
+<div class="panel no-sh canvas-container">
+  <div class="panel no-sh labels">
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#F44336'}"></div>
+      <span class="text">A3</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#E91E63'}"></div>
+      <span class="text">F7</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#9C27B0'}"></div>
+      <span class="text">F3</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#673AB7'}"></div>
+      <span class="text">FC5</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#3F51B5'}"></div>
+      <span class="text">T7</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#2196F3'}"></div>
+      <span class="text">P7</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#03A9F4'}"></div>
+      <span class="text">O1</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#00BCD4'}"></div>
+      <span class="text">O2</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#009688'}"></div>
+      <span class="text">P8</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#4CAF50'}"></div>
+      <span class="text">T8</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#8BC34A'}"></div>
+      <span class="text">FC6</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#CDDC39'}"></div>
+      <span class="text">F4</span>
+    </div>
+
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#FFEB3B'}"></div>
+      <span class="text">F8</span>
+    </div>
+    
+    <div class="label">
+      <div class="indicator" [ngStyle]="{background: '#FFC107'}"></div>
+      <span class="text">AF4</span>
+    </div>
+
+  </div>
+  <canvas #areaChart id="areaChart" class="canvas" (pan)="handlePan($event)"></canvas>
+</div>

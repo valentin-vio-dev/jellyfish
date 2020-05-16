@@ -1,0 +1,8 @@
+{
+  "name": "epoc-signals",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,24 @@
+<ion-header>
+  <div class="">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="openNav()">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title><b>settings</b></ion-title>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="panel">
+    <ion-item lines="none">
+      <ion-label>Device scan timeout</ion-label>
+      <ion-select placeholder="Select One" (ionChange)="timeoutChange($event)" [selectedText]="timeoutValue">
+        <ion-select-option value="s-5">5 seconds</ion-select-option>
+        <ion-select-option value="s-10">10 seconds</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-content>

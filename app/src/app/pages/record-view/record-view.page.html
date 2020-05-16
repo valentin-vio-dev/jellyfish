@@ -1,0 +1,202 @@
+<ion-header class="mb-40">
+  <div class="">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="back()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" *ngIf="authService.authUser.uid != cloudService.currentCloudRecord.user.uid && !isInLib">
+        <ion-button class="white" (click)="addToLib()" [disabled]="clickedToLibButton">
+          <ion-icon name="bookmark" class="mr-10 small-icon"></ion-icon>
+          Save
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" *ngIf="authService.authUser.uid != cloudService.currentCloudRecord.user.uid && isInLib">
+        <ion-button class="white" (click)="removeFromLib()" [disabled]="clickedToLibButton">
+          <ion-icon name="bookmark" class="mr-10 small-icon"></ion-icon>
+          Remove
+        </ion-button>
+      </ion-buttons>
+      <ion-title><b>record</b><span class="o-5">view</span></ion-title>
+    </ion-toolbar>
+  </div>
+
+  <div class="toolbar-menu">
+    <ion-segment (ionChange)="segmentChanged($event)" value="info">
+      <ion-segment-button value="info">
+        <ion-icon name="information-circle" class="small-icon"></ion-icon>
+        <ion-label>Info</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="signals">
+        <ion-icon name="pulse" class="small-icon"></ion-icon>
+        <ion-label>Signals</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="export">
+        <ion-icon name="cloud-download" class="small-icon"></ion-icon>
+        <ion-label>Export</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content>
+
+  <div class="panel p-10 title-sec">
+    <h4 class="record-name primary"><b>{{ cloudService.currentCloudRecord.name }}</b></h4>
+    <div class="profile" (click)="goToUser(cloudService.currentCloudRecord.user.uid)">
+      <div class="text-sec">
+        <small><b class="primary">
+          {{ cloudService.currentCloudRecord.user.firstname + ' ' + cloudService.currentCloudRecord.user.lastname }}
+        </b></small>
+        <ion-text color="medium" >
+          <small>{{ cloudService.currentCloudRecord.user.role }}</small>
+        </ion-text>
+      </div>
+      <div class="img-sec">
+        <img [src]="(cloudService.currentCloudRecord.user.pic ? cloudService.currentCloudRecord.user.pic : '../../../assets/img/def-profile.png')" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="info-view panel p-10 no-sh" *ngIf="currentSegment == 'info'">
+    <ion-grid>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="cloud" class="mr-10 small-icon"></ion-icon>
+          <span>Record name</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.name }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="create" class="mr-10 small-icon"></ion-icon>
+          <span>Notes</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.notes ? cloudService.currentCloudRecord.notes : '-' }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="calendar" class="mr-10 small-icon"></ion-icon>
+          <span>Date</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.dateStart | date:'short' }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="time" class="mr-10 small-icon"></ion-icon>
+          <span>Length</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.getFormatedTime() }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="pulse" class="mr-10 small-icon"></ion-icon>
+          <span>Samples</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.sampleCount }} samples</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="bluetooth" class="mr-10 small-icon"></ion-icon>
+          <span>Device name</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.deviceName }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-icon name="information-circle" class="mr-10 small-icon"></ion-icon>
+          <span>Device address</span>
+        </ion-col>
+        <ion-col>
+          <span class="primary">{{ cloudService.currentCloudRecord.deviceAddress }}</span>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="cloudService.currentCloudRecord.user.uid == authService.authUser.uid" (click)="setRecordRead($event)">
+        <ion-col>
+          <ion-icon name="globe" class="mr-10 small-icon"></ion-icon>
+          <span>Private record</span>
+        </ion-col>
+        <ion-col>
+          <ion-toggle [(ngModel)]="privateRecord" class="mt-n10"></ion-toggle>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+
+
+  <!-- ---------------------------- SIGNALS -------------------------------- -->
+  <div class="signals-view" *ngIf="currentSegment == 'signals'">
+
+    <div class="panel no-sh time-range-section">
+      <ion-item lines="none">
+        <ion-item lines="none" slot="start">
+          <ion-input [value]="timesText.lower" class="time-input" readonly (click)="openLowerPicker()" ></ion-input>
+        </ion-item>
+        <ion-item lines="none" slot="end">
+          <ion-input [value]="timesText.upper" class="time-input" readonly (click)="openUpperPicker()" ></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-range id="range" dualKnobs="true" color="primary" [min]="time.min" [(ngModel)]="times" [max]="time.max" step="1" (pan)="panRange()"></ion-range>
+      </ion-item>
+    </div>
+
+    <div class="charts-container">
+      <app-area-chart [times]="times" [chartType]="chartType" (emitPan)="handleChildPan($event)"></app-area-chart>
+    </div>
+
+    <!--<div class="panel no-sh">
+      <ion-item lines="none">
+        <ion-icon name="analytics" class="mr-10 small-icon"></ion-icon>
+        <ion-label>Chart type</ion-label>
+        <ion-select placeholder="Select" [(ngModel)]="chartType" value="Area chart">
+          <ion-select-option value="area-chart">Area chart</ion-select-option>
+          <ion-select-option value="line-chart">Line chart</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>-->
+
+  </div>
+
+  <!-- ---------------------------- EXPORT -------------------------------- -->
+  <div class="signals-view padding-h" *ngIf="currentSegment == 'export'">
+    <!--<ion-item lines="none">
+      <ion-text>Export as <ion-text color="primary"><b>.csv</b></ion-text> file</ion-text>
+      <ion-checkbox slot="end"></ion-checkbox>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-text>Export as <ion-text color="primary"><b>.txt</b></ion-text> file</ion-text>
+      <ion-checkbox slot="end"></ion-checkbox>
+    </ion-item>-->
+
+    <ion-button expand="block" class="round" (click)="export()">
+      <ion-icon name="download" class="mr-10 medium-icon"></ion-icon>
+      Export
+    </ion-button>
+  </div>
+
+
+</ion-content>

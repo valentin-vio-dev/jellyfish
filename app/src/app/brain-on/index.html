@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="padding: 0; margin: 0;">
+    <canvas id="brain" width="500" height="500"></canvas>
+    <script src="BrainSignal.js"></script>
+
+    <script>
+        let element = document.getElementById('brain');
+        brain = new BrainSignal(element);
+
+        addData();
+
+        function addData() {
+            setTimeout(() => {
+                brain.updateSensors([
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                    (Math.random() * 300 + 4000),
+                ]);
+                addData();
+            }, 100);
+
+        }
+    </script>
+</body>
+</html>

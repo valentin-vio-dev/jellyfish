@@ -1,0 +1,29 @@
+<ion-header>
+  <div class="">
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="stop()">
+          <ion-icon slot="icon-only" name="power"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Data</ion-title>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-reorder-group id="reorder" disabled="false" (ionItemReorder)="doReorder($event)">
+      <ion-reorder *ngFor="let index of indexes">
+        <ion-item lines="none">
+          <ion-label color="primary ml-10">Channel {{ index }}</ion-label>
+          <div class="panel p-20 data-section">
+            <ion-text>{{ recordService.getSignalsByChannel(index)[0].toFixed(4) }}</ion-text>
+          </div>
+        </ion-item>
+      </ion-reorder>
+    </ion-reorder-group>
+
+  </ion-list>
+</ion-content>

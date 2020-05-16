@@ -1,0 +1,302 @@
+@import './theme/variables.scss';
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+ion-content, ion-header, ion-tabs, app-login {
+    --ion-background-color: #fafafa;
+    background-color: #fafafa;
+}
+
+ion-tab-button {
+    border-radius: 10px;
+    border: 1px solid #fcfcfc;
+    box-shadow: $s-item-shadow;
+    --ion-background-color: #fafafa;
+    background-color: #fafafa;
+    margin: 15px;
+    max-width: 60px;
+
+    &.tab-selected {
+        box-shadow: $s-item-shadow-inner;
+    }
+}
+
+
+ion-tab-bar {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.panel {
+    border-radius: 10px;
+    border: 1px solid #fcfcfc;
+    padding: 5px;
+    box-shadow: $s-item-shadow;
+    background-color: #fafafa;
+    --ion-background-color: #fafafa;
+    margin: 15px;
+
+    &.sq {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .panel &.sq {
+        margin: 10px;
+    }
+
+    &.end {
+        margin: 7px -5px 7px 5px;
+    }
+
+    &.no-sh {
+        box-shadow: none;
+    }
+}
+
+ion-item-option {
+    border-radius: $round;
+}
+
+.xs-icon {
+    width: 10px;
+    height: 10px;
+}
+
+.small-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.medium-icon {
+    width: 20px;
+    height: 20px;
+}
+
+ion-button, ion-item-option {
+    text-transform: inherit;
+}  
+
+ion-button {
+    --box-shadow: none;
+
+    &.white {
+        background-color: #fafafa;
+        color: #54a0ff;
+    }
+}
+
+ion-button, ion-fab-button {
+    border-radius: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-80 {
+    margin-bottom: 80px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+.mt-n10 {
+    margin-top: -10px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.ml-10 {
+    margin-left: 10px;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.o-2 {
+    opacity: 0.2;
+}
+
+.primary {
+    color: #54a0ff;
+}
+
+ion-label {
+    text-transform: initial;
+}
+
+ion-reorder {
+    background-image: none;
+    box-shadow: none !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.d-block {
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+ion-title {
+    text-transform: uppercase;
+}
+
+ion-toolbar {
+    --background: #54a0ff;
+    color: #fcfcfc;
+    height: 150px;
+    border-radius: 0px 0px 20px 20px;
+    position: relative;
+}
+
+ion-header {
+
+    .toolbar-menu {
+        margin-top: -40px;
+        z-index: 100;
+        position: fixed;
+        width: inherit;
+        padding: 0px 15px;
+
+        .toolbar-menu-content {
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: $s-shadow;
+            background-color: #fafafa;
+        }
+
+        ion-segment {
+
+        }
+    }
+}
+
+ion-segment {
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: $s-shadow;
+    background-color: #fafafa;
+    --ion-background-color: #fafafa;
+}
+
+.o-5 {
+    opacity: 0.5;
+}
+
+.round{
+    --border-radius: 10px !important;
+}
+
+ion-progress-bar {
+    height: 5px;
+}
+
+ion-app, app-user, app-record-view {
+    background-color: #fafafa;
+    --ion-background-color: #fafafa;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.white-text {
+    color: #fafafa;
+}
+
+.time-input {
+    width: 90px;
+    --width: 90px;
+    text-align: center;
+    input {
+        margin-right: 5px;
+    }
+}
+
+ion-header ion-toolbar:first-of-type {
+    padding-top: 0px;
+}
