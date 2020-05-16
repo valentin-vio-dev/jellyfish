@@ -10,3 +10,5 @@ bizonyos hatótávolságon belül. Az előző fejezetben említett alkalmazások
 felhasználók kezelésével és az adatok tárolásával tér el. Az adatok tárolása a felhőben történik,
 így biztosítva, hogy más felhasználók is szabadon felhasználhassák az adatokat különböző
 projektekben a világ bármely részén. 
+
+[Apk letöltése itt.](https://github.com/valentin-vio-dev/jellyfish/tree/master/apk)
