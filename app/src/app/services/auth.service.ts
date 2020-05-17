@@ -33,7 +33,8 @@ export class AuthService {
       firstname,
       lastname,
       role,
-      email
+      email,
+      follows: []
     });
   }
 
